@@ -1,0 +1,132 @@
+              <header>
+<div class="head">
+<div>
+<img style="height:70px;width: 100px;"src="https://i.imgur.com/Np7fsUb.png">
+</div>
+<div>
+ 
+  
+ 
+</div>
+<div style="margin-top:10px">
+  <!-- <app-searchcomponent (searchtextchanged)="onSeacrhTextEntered($event)"></app-searchcomponent> -->
+ <div style="display:flex;"><div style="margin-top:10px"> <input id="search"style="height:100px,width:300px;margin-right:300px" type="text" [value]="searchText" (keyup)="keyUp.next($event)" > 
+ </div><div> <button (click)="search()"><img class="images"src="https://i.imgur.com/56OVuPM.png"></button></div>
+  <div style="position:relative"><img style="height: 40px;width: 50px;top:1px"src="https://i.imgur.com/zAWVW6a.png"><button type="button" (click)="add()">
+    <img  style="position:absolute;width: 25px;height: 20px;top:7px;right:30px"src="https://i.imgur.com/KxrGjbK.png">
+  </button></div>
+<div><button>
+<img src="https://i.imgur.com/rXJXG9F.png"  class = "rounded-circle"  ></button></div></div>
+</div>
+</div>
+<div style="background-color: blueviolet;height:40px;" class="head" id="quotediv">
+  <div>
+<p id="quote">"Anything that can go wrong will go wrong!"</p></div>
+<div>
+  <button id="removequote" (click)="removequote()" ><img src="https://i.imgur.com/KDBXtqF.png"></button>
+</div>
+</div>
+<button  (click)="showquote()"style="margin-right: 90%; display:none;"id="info"><img src="https://i.imgur.com/JJuyXig.png"></button>
+              </header>
+              <div  style="background: #F4F7FC 0% 0% no-repeat padding-box;"class="container-fluid">
+                <div class="row">
+              <div class="col-sm-4">
+              <!-- <div class="example-container"> -->
+                <div style="display:flex;width:100%;margin-top: 10px;background-color: white;"><div><img style="margin-top: 8px;" src="https://i.imgur.com/bbjMhpm.png"></div><div><h2 class="headers">To Do</h2></div></div>
+              
+                <div
+                  cdkDropList [cdkDropListData]="todo"
+                  #todoList="cdkDropList"
+                  [cdkDropListData]="todo"
+                  [cdkDropListConnectedTo]="[doneList,doingList]"
+                 
+                  class="example-list"
+                  (cdkDropListDropped)="drop($event)">
+                 
+                    <div style="height: fit-content;padding:10px 10px 10px 10px;margin-top:20px" class="task" *ngFor="let item of todo;let i=index;;trackBy: trackByFn" cdkDrag>
+                      <div  style="height:240px" *ngIf="searchText===''|| index(item.description,searchText)!=-1">
+                      <input [ngClass]="{'highlight':searchText!=''&&index(item.description,searchText)!=-1}"class="description" type="text"  [(ngModel)]="item.description" (change)="change($event,i)"><br>
+
+            
+                <table>
+                <tr><td><label for="category">category:</label></td><td><input name="category" type="text" [(ngModel)]="todo[i].category"(change)="categorychange($event,i)"> </td></tr>
+                <tr><td><label>duedate:</label></td><td><input type="datetime-local" [(ngModel)]="todo[i].Due_date"(change)="duedatechange($event,i)"> </td></tr>
+                <tr><td><label>estimate:</label></td><td><input id="number"type="number" [value]="parseInt(item)"(change)="estimatechange($event,i)"><input id="units"type="text" [value]='str(item)' (change)="estimatechange($event,i)"></td></tr> 
+                <tr><td><label>importance:</label></td>
+                <td><select [ngClass]="item.importance=='LOW'?'green':item.importance=='MEDIUM'?'orange':'red'" [(ngModel)]="item.importance" (change)="importancechange($event,i)">>
+                
+                  <option style="background-color:green" value="LOW" [selected]="item.importance=='LOW'?true:null">LOW</option>
+                  <option style="background-color:#FE913E" value="MEDIUM"[selected]="item.importance=='MEDIUM'?true:null">MEDIUM</option>
+                  <option style="background-color:red"value="HIGH" [selected]="item.importance=='HIGH'?true:null">HIGH</option>
+                </select></td></tr>
+              
+
+              </table>
+              <br>
+                  </div>
+                </div>
+             
+               
+                </div>
+              </div>
+              <!-- </div> -->
+              <div class="col-sm-4">
+              <!-- <div class="example-container"> -->
+              <div style="display:flex;width:100%;margin-top: 10px;background-color: white;"><div><img style="margin-top: 8px;" src="https://i.imgur.com/xvnT2eh.png"></div><div><h2 class="headers">Doing</h2></div></div>
+              
+                <div
+                  cdkDropList [cdkDropListData]="doing"
+                  #doingList="cdkDropList"
+                  [cdkDropListData]="doing"
+                  
+                  [cdkDropListConnectedTo]="[todoList,doneList]"
+                 
+                  class="example-list"
+                  (cdkDropListDropped)="drop($event)">
+                  <div style="height: fit-content;padding:10px 10px 10px 10px;margin-top:20px;"class="task" *ngFor="let item of doing;let i=index;;trackBy: trackByFn" cdkDrag>
+                    <div style="height:240px;" *ngIf="searchText===''|| index(item.description,searchText)!=-1">
+                    <input class="description" type="text" [value]="doing[i].description" readonly=""><br>
+                    <table><tr><td><label>category: </label></td><td><input type="text"  [value]="item.category" readonly=""> </td></tr>
+                      <tr><td> <label>duedate:</label> </td><td><input type="datetime-local" [value]="item.Due_date"readonly=""> </td></tr> 
+                       <tr><td><label>estimate:</label> <td><span><input type="number" [value]="parseInt(item)"readonly="" ><input  type="text" [value]="str(item)"readonly=""> </span>
+                       </td></tr>
+                       <tr><td><label>importance</label></td><td><button style="margin-left: 90px;" [ngClass]="item.importance=='LOW'?'green':item.importance=='MEDIUM'?'orange':'red'" >{{item.importance}}</button></td></tr>
+                         
+                       </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- </div> -->
+              <div class="col-sm-4">
+              <!-- <div class="example-container"> -->
+                <div style="display:flex;width:100%;margin-top: 10px;background-color: white;"><div><img style="margin-top: 8px;"src="https://i.imgur.com/HpuThzh.png"></div><div><h2 class="headers">Done</h2></div></div>
+              
+                <div
+                  cdkDropList [cdkDropListData]="done"
+                  #doneList="cdkDropList"
+                  [cdkDropListData]="done"
+                  [cdkDropListConnectedTo]="[todoList,doingList]"
+                 
+                  class="example-list"
+                  (cdkDropListDropped)="drop($event)">
+                  <div style="height: fit-content;padding:10px 10px 10px 10px;margin-top:20px"class="task"  *ngFor="let item of done;let i=index;;trackBy:trackByFn" cdkDrag>
+                    <div style="height:240px" *ngIf="searchText===''|| index(item.description,searchText)!=-1">
+                    <input class="description" type="text" [value]="item.description" readonly="" ><br>
+                    <table><tr><td><label>category: </label></td><td><input type="text"  [value]="item.category" readonly=""> </td></tr>
+                   <tr><td> <label>duedate:</label> </td><td><input type="datetime-local" [value]="item.Due_date"readonly=""> </td></tr> 
+                   <tr><td><label>estimate:</label> <td><span><input type="number" [value]="parseInt(item)" readonly=""><input  type="text" [value]="str(item)"readonly=""> </span> 
+                    </td></tr>
+                    <tr><td><label>importance</label></td><td><button style="margin-left: 90px;" [ngClass]="item.importance=='LOW'?'green':item.importance=='MEDIUM'?'orange':'red'" >{{item.importance}}</button></td></tr>
+                      
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              </div>
+              </div>
+              </div>
+            <button id="logout"><a routerLink="/" routerLinkActive="active" >logout</a></button>
+        
+                               

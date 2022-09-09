@@ -1,0 +1,113 @@
+
+#fdiv{
+    margin-top: 10%;
+}
+#submit{
+    top:60%;
+    left: 60%;
+    height: 6%;
+    width: 30%;
+    position: absolute;
+  color:black;
+    background: #B6A3C2 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.images{
+
+}
+a{
+    text-decoration-line: none;
+    color:black;
+}
+
+
+.float-child {
+    width: 50%;
+    float: left;
+    height: 100%;
+ 
+}  
+.float-container{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+#logo{
+    top: 25%;
+left: 12.5%;
+width: 25%;
+height: 20%;
+    position: absolute;
+}
+#man{
+    top: 60%;
+    left: 25%;
+    width: 25%;
+    height: 25%;
+opacity: 1;
+position: absolute;
+}
+#woman{
+    top: 60%;
+    left: 0px;
+    width: 25%;
+    height: 25%;
+    position: absolute;
+    opacity: 1;
+}
+#parag{
+    top: 20%;
+left: 60%;
+height: 10%;
+min-width: fit-content;
+position: absolute;
+text-align: left;
+font: normal normal HelveticaNeue;
+font-size: 240%;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+}
+.emailsection{
+    top: 30%;
+    left: 60%;
+    height: 10%;
+    width: 30%;
+      position: absolute;
+}
+.passwordsection{
+    top: 45%;
+    left: 60%;
+    height: 10%;
+    width: 30%;
+    position: absolute;
+}
+#email{
+
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    opacity: 1;
+    width: 100%;
+    height: 60%;
+}
+#password{
+   
+    width: 100%;
+    height: 60%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px
+}
+.row{
+position: absolute;
+height:100%;
+width: 100%;
+
+}
+.col-sm{
+    display: block;
+}

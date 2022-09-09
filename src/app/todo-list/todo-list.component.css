@@ -1,0 +1,136 @@
+#quote{
+padding-top:8px;
+font-size: 200%;
+font-style: italic;
+color:white;
+}
+.description{
+ font-weight:bolder;
+ font: normal normal medium 16px/24px HelveticaNeue;
+ margin-left:0px;
+ width: 100%;
+border:0px;
+}
+.headers{
+ 
+}
+.images{
+  background-color: white;
+  height: 35px ;
+  width: 40px;
+border-image: round;
+overflow: hidden;
+}
+td{
+  width: fit-content;
+}
+select{
+  margin-left: 40px;
+}
+table{
+  border-collapse:separate; 
+border-spacing:20px;
+}
+input{
+  margin-left: 25%; 
+  font-weight: lighter ;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: medium;
+  width: fit-content;
+  border:0px;
+
+}
+
+.headers{
+ margin-left: 8px;
+ margin-top: 4px;
+}
+label{
+color:#6C757D;
+  float:left;
+  width:20%;
+}
+.highlight{
+  background-color: blueviolet;}
+ 
+#search :focus{
+  display: block;
+background-color:"#F4F7FC";
+height:"100px";
+width:"500px";
+margin-right:"100px";
+}
+.red{
+  background-color: red;
+}
+.green{
+  background-color: green;
+}
+.orange{
+  background-color:#FE913E;
+}
+ul { list-style-type: none; }
+.head{
+  justify-content: space-between;
+  display:flex;
+}
+.example-container {
+  width: 400px;
+  max-width: 100%;
+  margin: 0 25px 25px 0;
+  display: inline-block;
+  vertical-align: top;
+  
+}
+
+.example-list {
+  margin-top: 20px;
+
+  min-height: 60px;
+ 
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+}
+
+.example-box {
+  margin-top: 20px;
+  padding: 20px 10px;
+  font-size: medium;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+ 
+  font-size: 14px;
+}
+
+
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+.task{
+  border:solid 1px #ccc;
+  background: white;
+}
+#todosection{
+  background-image:'../assets/images/todoIcon.png';
+  background-position: left;
+  background-size: 100px;
+}
